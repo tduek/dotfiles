@@ -1,0 +1,37 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+if [ ! -f ~/.bash_profile ]; then
+  echo "~/.bash_profile not found... creating."
+  touch ~/.bash_profile
+fi
+
+cat <<EOT >> ~/.bash_profile 
+
+### Added by $DIR/install
+source $DIR/bash_profile
+EOT
+
+
+if [ ! -f ~/.vimrc ]; then
+  echo "~/.vimrc not found... creating."
+  touch ~/.vimrc
+fi
+cat <<EOT >> ~/.vimrc
+
+""" Added by $DIR/install
+so $DIR/vimrc
+EOT
+
+
+if [ ! -f ~/.gitconfig ]; then
+  echo "~/.gitconfig not found... creating."
+  touch ~/.gitconfig
+fi
+cat <<EOT >> ~/.gitconfig
+
+### Added by $DIR/install
+[include]
+    path = $DIR/gitconfig
+EOT
