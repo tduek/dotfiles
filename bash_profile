@@ -1,4 +1,4 @@
-echo "Loading ~/bash_profile"
+echo "Loading ${BASH_SOURCE[0]}"
 
  # use Homebrew's directories rather than ~/.rbenv
 export RBENV_ROOT=/usr/local/var/rbenv
@@ -27,3 +27,6 @@ fi
 # Load NVM
 export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
+
+# Silence bash deprecation warning.
+export BASH_SILENCE_DEPRECATION_WARNING=1
