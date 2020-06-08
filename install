@@ -34,4 +34,6 @@ cat <<EOT >> ~/.gitconfig
 ### Added by $DIR/install
 [include]
     path = $DIR/gitconfig
+[core]
+    excludesfile = $DIR/gitignore_global
 EOT
