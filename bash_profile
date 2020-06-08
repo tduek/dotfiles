@@ -1,4 +1,4 @@
-echo "Loading ~/.bash_profile"
+echo "Loading ~/bash_profile"
 
  # use Homebrew's directories rather than ~/.rbenv
 export RBENV_ROOT=/usr/local/var/rbenv
@@ -9,7 +9,7 @@ if which rbenv > /dev/null
 fi
 
 # Load psql
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
+export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
 alias irb="pry"
 alias be="bundle exec"
@@ -19,7 +19,10 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 # added by Miniconda3 4.0.5 installer
 export PATH="/Users/tduek/miniconda3/bin:$PATH"
-export PATH="/Users/tduek/Documents/flash/programming/app_academy/work/reticle/bin:$PATH"
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+. $(brew --prefix)/etc/bash_completion
+fi
 
 # Load NVM
 export NVM_DIR="$HOME/.nvm"
