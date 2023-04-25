@@ -20,13 +20,16 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # added by Miniconda3 4.0.5 installer
 export PATH="/Users/tduek/miniconda3/bin:$PATH"
 
+# Load commands installed by brew packages
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
 . $(brew --prefix)/etc/bash_completion
 fi
 
 # Load NVM
 export NVM_DIR="$HOME/.nvm"
-. "$(brew --prefix nvm)/nvm.sh"
+[ -s "$(brew --prefix nvm)/nvm.sh" ] && \. "$(brew --prefix nvm)/nvm.sh"
+# Loads nvm bash_completion
+[ -s "$(brew --prefix nvm)/etc/bash_completion.d/nvm" ] && \. "$(brew --prefix nvm)/etc/bash_completion.d/nvm"
 
 # Silence bash deprecation warning.
 export BASH_SILENCE_DEPRECATION_WARNING=1
